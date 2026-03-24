@@ -1,0 +1,196 @@
+Chalo isko **proper exam-style full solution** me step-by-step solve karte hain (simple Hinglish me 👇)
+
+---
+
+## 🔹 Step 1: Dataset samajh lo
+
+Total records = 5
+
+Target (Buys Computer):
+
+* Yes = 2
+* No = 3
+
+---
+
+## 🔹 Step 2: Entropy of whole dataset
+
+Formula:
+[
+Entropy(S) = -p_1 \log_2 p_1 - p_2 \log_2 p_2
+]
+
+[
+= -\frac{2}{5}\log_2\frac{2}{5} - \frac{3}{5}\log_2\frac{3}{5}
+]
+
+[
+= -(0.4)(-1.32) - (0.6)(-0.736)
+]
+
+[
+= 0.528 + 0.441 = 0.97 \ (approx)
+]
+
+👉 **Entropy(S) ≈ 0.97**
+
+---
+
+## 🔹 Step 3: Information Gain for each feature
+
+---
+
+# ✅ 1. Feature: Age
+
+### Split:
+
+| Age         | Yes | No | Entropy |
+| ----------- | --- | -- | ------- |
+| Young       | 0   | 2  | 0       |
+| Middle-aged | 1   | 0  | 0       |
+| Senior      | 1   | 1  | 1       |
+
+### Weighted Entropy:
+
+[
+= \frac{2}{5}(0) + \frac{1}{5}(0) + \frac{2}{5}(1)
+= 0.4
+]
+
+### Information Gain:
+
+[
+IG(Age) = 0.97 - 0.4 = 0.57
+]
+
+---
+
+# ✅ 2. Feature: Income
+
+### Split:
+
+| Income | Yes | No | Entropy |
+| ------ | --- | -- | ------- |
+| Low    | 1   | 1  | 1       |
+| High   | 0   | 2  | 0       |
+| Medium | 1   | 0  | 0       |
+
+### Weighted Entropy:
+
+[
+= \frac{2}{5}(1) + \frac{2}{5}(0) + \frac{1}{5}(0)
+= 0.4
+]
+
+### Information Gain:
+
+[
+IG(Income) = 0.97 - 0.4 = 0.57
+]
+
+---
+
+# ✅ 3. Feature: Student
+
+### Split:
+
+| Student | Yes | No | Entropy |
+| ------- | --- | -- | ------- |
+| Yes     | 1   | 1  | 1       |
+| No      | 1   | 2  | 0.918   |
+
+### Weighted Entropy:
+
+[
+= \frac{2}{5}(1) + \frac{3}{5}(0.918)
+= 0.4 + 0.551 = 0.951
+]
+
+### Information Gain:
+
+[
+IG(Student) = 0.97 - 0.951 = 0.019
+]
+
+---
+
+## 🔹 Step 4: Root Node choose karo
+
+| Feature | IG       |
+| ------- | -------- |
+| Age     | **0.57** |
+| Income  | **0.57** |
+| Student | 0.019    |
+
+👉 Highest IG = **Age & Income (tie)**
+
+👉 Generally first attribute pick karte hain → **Age as Root Node**
+
+---
+
+## 🔹 Step 5: Build Decision Tree
+
+### 🌳 Root: Age
+
+---
+
+### ➤ Age = Young
+
+All values = No
+👉 **Leaf = No**
+
+---
+
+### ➤ Age = Middle-aged
+
+All values = Yes
+👉 **Leaf = Yes**
+
+---
+
+### ➤ Age = Senior
+
+Data:
+
+| Income | Student | Output |
+| ------ | ------- | ------ |
+| Medium | Yes     | Yes    |
+| High   | No      | No     |
+
+👉 Ab yahan best feature = Income (perfect split)
+
+---
+
+### ➤ Income = Medium → Yes
+
+### ➤ Income = High → No
+
+---
+
+## 🔹 Final Decision Tree
+
+```
+           Age
+         /  |   \
+    Young Middle Senior
+      |       |      |
+     No      Yes   Income
+                    /   \
+               Medium   High
+                 |        |
+                Yes       No
+```
+
+---
+
+## 🔥 Final Answer Summary (exam likhne layak)
+
+* Entropy(S) = **0.97**
+* IG(Age) = **0.57**
+* IG(Income) = **0.57**
+* IG(Student) = **0.019**
+* Root Node = **Age**
+
+---
+
+Agar tu chahe toh mai iske aur **2–3 exam-level similar questions with full solution** bhi bana deta hoon practice ke liye 👍
