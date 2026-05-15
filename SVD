@@ -1,0 +1,28 @@
+## Kyunki 4 teeno mein **common** tha!
+
+```
+x₁ : x₂ : x₃
+4  :  8  :  4
+```
+
+Teeno mein **4 common** hai, toh simplify karo:
+
+```
+4/4  :  8/4  :  4/4
+ 1   :   2   :   1
+```
+
+---
+
+> **Simple rule:** Eigenvector mein hume **ratio** chahiye hota hai, exact values nahi.
+>
+> Toh jo bhi **common factor** ho teeno mein — usse divide kar do! ✅
+
+---
+
+### Example ke liye:
+Agar answer aata `6 : 12 : 9` → 3 se divide → `2 : 4 : 3`
+
+Agar answer aata `5 : 10 : 5` → 5 se divide → `1 : 2 : 1`
+
+**Bas GCD (common number) dhundho aur divide karo!** 😊
