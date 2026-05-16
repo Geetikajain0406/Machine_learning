@@ -1,0 +1,31 @@
+# CNN ki Limitations — Easy Hinglish mein 😄
+
+---
+
+## 🔑 Main Point:
+CNN **patterns aur minute details** pakad leta hai jo human eye miss kar deti hai — **BUT** image ka **actual meaning/context samajhna** uske bas ki baat nahi!
+
+---
+
+## ❌ Limitations:
+
+### 1. 🚫 Content Samajhna Nahi Aata
+- Social media pe **inappropriate content moderate** karne ke liye CNNs use hue
+- Bahut saari images pe train kiya gaya tha
+- **Phir bhi 100% inappropriate content block nahi kar paya**
+- Kyunki wo **context nahi samajhta** — bas pattern dekhta hai
+
+### 2. 💡 Lighting & Angle Change karo — CNN Confuse!
+- Studies ne prove kiya ki **ImageNet** pe train kiya hua CNN...
+- Same object ko **alag angle ya alag lighting** mein dekhe toh **detect nahi kar pata!**
+- Human toh easily pehchaan leta — CNN nahi
+
+### 3. 🧠 Human Intelligence Replicate Nahi Ho Sakti (Abhi Tak)
+- CNN aaj **facial recognition, image search, AR, editing** mein use ho raha hai
+- Achievements **remarkable hain** — but...
+- **Human brain jaisi intelligence** abhi bhi bahut door hai
+
+---
+
+## 🎯 One Line Summary:
+> CNN **dekhta bahut hai, samajhta kam hai** — pattern ka king hai, but common sense zero! 😂
