@@ -1,0 +1,61 @@
+## RFM Aggregation Code Explanation
+
+Yeh code **3 cheezein ek saath calculate** kar raha hai har customer ke liye:
+
+---
+
+### Step-by-step breakdown:
+
+**`df.groupby('CustomerID')`**
+- Data ko CustomerID ke basis pe groups mein tod deta hai
+- Har customer ka apna ek "mini dataframe" ban jaata hai
+
+---
+
+**`.agg({...})`** — Aggregation function, jo har group pe alag-alag operations apply karta hai:
+
+### 1. Recency — `'InvoiceDate': lambda x: (reference_date - x.max()).days`
+```
+x        = us customer ki saari invoice dates
+x.max()  = uski SABSE LATEST purchase date
+reference_date - x.max() = kitne din pehle khareeda?
+.days    = datetime difference ko sirf number of days mein convert karo
+```
+➡ **Chhota number = haal mein aaya = better customer**
+
+---
+
+### 2. Frequency — `'InvoiceNo': 'count'`
+```
+x        = us customer ke saare invoice numbers
+'count'  = kitne invoices hain? = kitni baar aaya?
+```
+➡ **Bada number = zyada baar aaya = better customer**
+
+---
+
+### 3. Monetary — `'TotalAmount': 'sum'`
+```
+x        = us customer ke saare transaction amounts
+'sum'    = sab jod do = total kitna paisa diya?
+```
+➡ **Bada number = zyada paisa diya = better customer**
+
+---
+
+### Output kaisa dikhta hai:
+
+| CustomerID | InvoiceDate | InvoiceNo | TotalAmount |
+|---|---|---|---|
+| C001 | 15 | 8 | 4500.00 |
+| C002 | 3 | 25 | 18000.00 |
+| C003 | 120 | 2 | 800.00 |
+
+*C002 sabse valuable customer hai — haal mein aaya, zyada baar aaya, zyada paisa diya*
+
+---
+
+### Ek line mein:
+> `agg()` ek saath **multiple columns pe multiple functions** apply karta hai — ek hi groupby call mein teeno R, F, M values nikal aati hain.
+
+Koi aur cheez samajhni ho toh batao! 🙂
